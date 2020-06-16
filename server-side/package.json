@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "test":"./node_modules/mocha/bin/_mocha ./test/**/*.js --timeout 3000 --colors --exit"
   },
   "keywords": [],
   "author": "",
