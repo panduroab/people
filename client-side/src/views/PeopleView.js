@@ -3,13 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 } from '@material-ui/core';
-import data from '../example-data.json';
 
 class PeopleView extends React.Component {
   constructor() {
     super();
     this.state = {
-      rows: data,
       classes: makeStyles({
         table: {
           minWidth: 650,
@@ -18,7 +16,12 @@ class PeopleView extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.fetchPeople();
+  }
+
   render() {
+    const { people } = this.props.peopleView;
     return (
       <TableContainer component={Paper}>
         <Table className={this.state.classes.table}>
@@ -30,7 +33,7 @@ class PeopleView extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.state.rows.map((row) => (
+            {people.map((row) => (
               <TableRow key={row.display_name}>
                 <TableCell>{row.display_name}</TableCell>
                 <TableCell>{row.email_address}</TableCell>
