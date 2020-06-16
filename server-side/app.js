@@ -1,10 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const app = new express();
+const routes = require('./src/routes');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//Add application routes
+routes(app);
 
 /**
  * 404 Error
