@@ -14,6 +14,20 @@ class People {
       throw error;
     }
   }
+  async fetchCountEmailChar() {
+    try {
+      return await client.get('/people/count_email_characters');
+    } catch (error) {
+      throw error;
+    }
+  }
+  async fetchPossibleDuplicated() {
+    try {
+      return await client.get('/people/possible_duplicated');
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default People;
