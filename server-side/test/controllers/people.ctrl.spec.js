@@ -18,4 +18,16 @@ describe('People API', () => {
       throw error;
     }
   });
+
+  it.only('should return a emails count characters array', async () => {
+    try {
+      let res = await chai.request(app)
+        .get('/people/count_email_characters');
+      expect(res).to.have.status(200);
+      expect(res.body).to.be.an('array');
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  });
 });
