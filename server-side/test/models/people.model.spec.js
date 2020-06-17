@@ -24,4 +24,15 @@ describe('PeopleModel', () => {
       done(error)
     }
   });
+
+  it('should return an array with possible duplicated emails', done => {
+    try {
+      const people = require('../example-data.json');
+      const charTable = peopleModel.computePossibleDuplicatePeople(people);
+      expect(charTable).to.be.an('array');
+      done();
+    } catch (error) {
+      done(error)
+    }
+  });
 });

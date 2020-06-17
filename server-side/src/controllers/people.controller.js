@@ -21,5 +21,14 @@ class PeopleController {
       throw e;
     }
   }
+
+  getPossibleDuplicatePeople = () => async (req, res) => {
+    try {
+      let possibleDuplicated = await this.people.getPossibleDuplicatePeople();
+      return res.json(possibleDuplicated);
+    } catch (e) {
+      throw e;
+    }
+  }
 }
 module.exports = PeopleController;
