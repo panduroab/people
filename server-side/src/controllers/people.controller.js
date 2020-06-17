@@ -12,5 +12,23 @@ class PeopleController {
       throw e;
     }
   }
+  
+  getCountEmailCharacters = () => async (req, res) => {
+    try {
+      let emailCharaters = await this.people.getCountEmailsCharacters();
+      return res.json(emailCharaters);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  getPossibleDuplicatePeople = () => async (req, res) => {
+    try {
+      let possibleDuplicated = await this.people.getPossibleDuplicatePeople();
+      return res.json(possibleDuplicated);
+    } catch (e) {
+      throw e;
+    }
+  }
 }
 module.exports = PeopleController;
